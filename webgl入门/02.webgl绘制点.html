@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webgl绘制一个点</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+  </body>
+  <script>
+    //获取dom元素
+    const ctx = document.querySelector("#canvas");
+    //调用接口
+    const gl = ctx.getContext("webgl");
+    //着色器，它是需要接受浮点数的
+    //gl_Positon:绘制坐标点
+    //gl_PointSize：点的大小
+    // 顶点着色器
+    const VERTEX_SHAPER_SOURCE = `
+      void main(){
+        gl_Positon=vec4(0.0,0.0,0.0,1.0);
+        gl_PointSize=10.0
+      }
+    `;
+    // 片元着色器
+    const FRAGMENT_SHADER_SOURCE = `
+      void main(){
+        gl_FragColor=vec4(1.0,0.0,0.0,1.0);
+      }
+    `;
+    //创建着色器
+    const vertextshader = gl.createShader(gl.VERTEX_SHAPER_SOURCE);
+    const fragmentshade = gl.createShader(gl.FRAGMENT_SHADER_SOURCE);
+    //指定着色器源码
+    gl.shaderSource(vertextshader, VERTEX_SHAPER_SOURCE);
+    gl.shaderSource(fragmentshade, FRAGMENT_SHADER_SOURCE);
+    // 创建一个程序对象
+    const program = gl.createProgram();
+    gl.attachShader(program, vertextshader);
+    gl.attachShader(program, fragmentshade);
+    gl.linkProgram(program);
+    gl.useProgram(program);
+
+    //绘制
+    gl.drawArrays(gl.POINTS, 0, 1);
+  </script>
+</html>
