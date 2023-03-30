@@ -1,0 +1,22 @@
+{
+  "name": "3d.github.io",
+  "version": "1.0.0",
+  "description": "前端程序员学习 3d 效果的笔记",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigdataOrfrontEnd/3D.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bigdataOrfrontEnd/3D.github.io/issues"
+  },
+  "homepage": "https://github.com/bigdataOrfrontEnd/3D.github.io#readme",
+  "dependencies": {
+    "typescript": "^5.0.2"
+  }
+}
