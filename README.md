@@ -31,3 +31,11 @@
 2. 片元着色器
 
 ### 案例：绘制一个点
+
+### 案例：webgl 坐标
+
+canvas 是左上角的
+webgl 是画布的正中心
+
+使用 attribute 修改坐标
+attribute vec4 aPosition;
