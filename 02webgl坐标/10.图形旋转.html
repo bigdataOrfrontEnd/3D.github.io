@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      margin: 50px auto 0;
+      display: block;
+      background: yellow;
+    }
+  </style>
+  <body></body>
+  <script src="../js/lib/init.js"></script>
+  <script>
+    const canvas = document.createElement("canvas");
+    document.querySelector("body").appendChild(canvas);
+    const gl = canvas.getContext("webgl");
+    // 创建着色器源码
+    const VERTEX_SHADER_SOURCE = `
+    attribute vec4 aPosition;
+    attribute float aTranslate;
+    void main() {
+      gl_Position = vec4(aPosition.x+ aTranslate , aPosition.y+ aTranslate, aPosition.z, 1.0);
+      gl_PointSize = 10.0;
+    }
+  `; // 顶点着色器
+    const FRAGMENT_SHADER_SOURCE = `
+    void main() {
+      gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+    }
+  `; // 片元着色器
+    const propram = inits(gl, VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
+    const aPosition = gl.getAttribLocation(propram, "aPosition");
+    const aTranslate = gl.getAttribLocation(propram, "aTranslate");
+    const points = new Float32Array([-0.5, -0.5, 0.5, -0.5, 0.0, 0.5]);
+    const buffer = gl.createBuffer();
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+
+    gl.bufferData(gl.ARRAY_BUFFER, points, gl.STATIC_DRAW);
+
+    gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
+
+    gl.enableVertexAttribArray(aPosition);
+    let x = -1;
+    setInterval(() => {
+      x += 0.01;
+      if (x > 1) {
+        x = -1;
+      }
+      gl.vertexAttrib1f(aTranslate, x);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }, 60);
+  </script>
+</html>
