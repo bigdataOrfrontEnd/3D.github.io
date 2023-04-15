@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webgl 的绘图步骤</title>
+  </head>
+  <body>
+    <!-- 1.在html中建立canvas 画布 -->
+    <canvas id="canvas"></canvas>
+  </body>
+  <!-- //顶点着色器 -->
+  <script id="vertexShader" type="x-shader/x-vertex">
+    void main() {
+        gl_Position = vec4(0.0, 0.0, 0.0, 1.0);
+        gl_PointSize = 100.0;
+    }
+  </script>
+  <!-- //片元着色器 -->
+  <script id="fragmentShader" type="x-shader/x-fragment">
+    void main() {
+        gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);
+    }
+  </script>
+  <script>
+    // 2.在js中获取canvas画布
+    /** @type {HTMLCanvasElement} */
+    const canvas = document.getElementById("canvas");
+    // 3.使用canvas 获取webgl 绘图上下文
+    const gl = canvas.getContext("webgl");
+    // 4.在script中建立顶点着色器和片元着色器，glsl es
+    const vsSource = document.getElementById("vertexShader").innerText;
+    const fsSource = document.getElementById("fragmentShader").innerText;
+    initShaders(gl, vsSource, fsSource);
+    gl.clearColor(0, 0, 0, 1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.drawArrays(gl.POINTS, 0, 1);
+  </script>
+</html>

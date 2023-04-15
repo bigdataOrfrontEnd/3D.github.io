@@ -29,12 +29,14 @@
   </body>
   <script src="../js/lib/init.js"></script>
   <script>
+    /** @type {HTMLCanvasElement} */
     const ctx = document.getElementById("canvas");
     //添加一个事件
     ctx.addEventListener("mousemove", methd, false);
     //或者使用
     // ctx.onclick=function(ev){}
     const gl = ctx.getContext("webgl");
+
     //顶点着色器
     const VERTEX_SHADER_SOURCE = `
     attribute vec4 aPosition;
