@@ -63,7 +63,8 @@
     // gl.attachShader(program, fragmentshade);
     // gl.linkProgram(program);
     // gl.useProgram(program);
-    const program = inits(gl, VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
+    inits(gl, VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
+
     //绘制
     gl.drawArrays(gl.POINTS, 0, 1);
   </script>
