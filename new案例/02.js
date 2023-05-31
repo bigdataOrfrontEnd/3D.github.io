@@ -1,6 +1,12 @@
+// 1. 获取canvas
+// 2. 创建上下文
+// 3. 着色器编写，将位置坐标和颜色都用变量去替代
+// 4. 清空canvas
+// 5. 绘制一条线
 const canvas = document.querySelector("#canvas2");
 const gl = canvas.getContext("webgl");
 const VERTEX_SHADER_SOURCE2 = `
+    attribute vec4 a_Position;
     void main(){
         gl_Position=vec4(0.0,0.0,0.0,1.0);
         gl_PointSize=5.0;
@@ -9,7 +15,9 @@ const VERTEX_SHADER_SOURCE2 = `
 
 const FRAGMENT_SHADER_SOURCE2 = `
     void main(){
-        gl_FragColor=vec4(1.0,0.0,0.0,1.0);
+        //uv坐标
+        vec2 uv=gl_FragCoord.xy/u_resolution;
+        gl_FragColor=vec4(uv.x,uv.y,0.0,1.0);
     }
     `;
 //指定着色器源码

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100px;
+        border: 1px solid #ddd;
+      }
+      .wrap {
+        position: relative;
+        width: 40%;
+        height: 40px;
+        margin: 5px auto;
+        background: #ddd;
+        font-size: 0;
+        overflow: hidden;
+      }
+      .wrap .cont {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* 宽度 大于容器的两倍即可 */
+        width: 200%;
+        -webkit-animation: 10s move infinite linear;
+      }
+      .wrap .txt {
+        font-size: 18px;
+        color: #fff;
+        display: inline-block;
+        /* 宽度 等于容器的宽度 */
+        width: 25%;
+        height: 30px;
+        border-left: 1px solid #fff;
+        line-height: 30px;
+        text-align: center;
+        margin-top: 5px;
+        background: #000;
+      }
+      @-webkit-keyframes move {
+        /* 原理 left值的变化 移动一个容器的宽度 */
+        0% {
+          left: 0;
+        }
+        100% {
+          left: -100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="cont">
+        <p class="txt">1.文字</p>
+        <p class="txt">2.文字如果超出了</p>
+        <p class="txt">3.文字如动。</p>
+        <p class="txt">4.文字如果超出动。</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="cont">
+        <p class="txt">1.文字如滚动。</p>
+        <p class="txt">2.文字滚动。</p>
+        <p class="txt">3.文字如果超</p>
+        <p class="txt">4.文字</p>
+      </div>
+    </div>
+  </body>
+</html>

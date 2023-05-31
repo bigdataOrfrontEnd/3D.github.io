@@ -25,6 +25,8 @@ gl1.shaderSource(fragmentshade, FRAGMENT_SHADER_SOURCE);
 //编译着色器
 gl1.compileShader(vertextshader);
 gl1.compileShader(fragmentshade);
+gl1.clearColor(1, 0.5, 0.5, 3);
+gl1.clear(gl1.COLOR_BUFFER_BIT);
 // 创建一个程序对象
 const program = gl1.createProgram();
 gl1.attachShader(program, vertextshader);
