@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item::after {
+        content: "我是伪类";
+      }
+      .item::before {
+        /* 就像我们只做遮挡层的时候，我们就可以使用伪类去做。 */
+        content: "我是";
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box item">使用伪类,是因为一个页面需要多个伪类</div>
+  </body>
+</html>
