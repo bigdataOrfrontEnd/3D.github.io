@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../../reset.css" />
+    <style>
+      .item {
+        display: inline-block;
+        width: 234px;
+        height: 300px;
+        text-align: center;
+        padding: 20px 0;
+        box-sizing: border-box;
+      }
+      .item:hover {
+        box-shadow: 0 2px 20px 5px rgba(0, 0, 0, 0.1);
+      }
+      img {
+        width: 160px;
+        height: 160px;
+      }
+      h3 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #333;
+      }
+      .prec {
+        font-size: 12px;
+        font-weight: 400;
+        color: #ddd;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .price {
+        margin-top: 12px;
+      }
+      .new-price {
+        font-size: 14px;
+        color: coral;
+        padding-right: 5px;
+      }
+      .old-price {
+        color: #ddd;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      class="item"
+      href="https://www.mi.com/shop/buy/detail?product_id=18075"
+      target="_blank"
+    >
+      <img src="../../image/xiaomi01.webp" alt="" />
+      <h3 class="title">Remi K60</h3>
+      <p class="prec">高通骁龙778G，OLED柔性直屏+一亿像素</p>
+      <div class="price">
+        <span class="new-price">2200元起</span>
+        <span class="old-price">2699元</span>
+      </div>
+    </a>
+  </body>
+</html>
