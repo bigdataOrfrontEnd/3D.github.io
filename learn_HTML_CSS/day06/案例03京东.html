@@ -26,9 +26,12 @@
       .desc {
         font-size: 12px;
         line-height: 20px;
-        height: 40px;
         overflow: hidden;
         text-overflow: ellipsis;
+        /* 这个是可以显示两行的,还有省略号 */
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
       }
       .price {
         color: brown;
@@ -45,10 +48,10 @@
         <img src="../../image/jd01.avif" alt="" />
       </div>
 
-      <p class="desc">
+      <div class="desc">
         欧普灯防水走廊过道壁灯卧室卫生间阳台楼梯户外吸顶贴墙灯超亮壁灯
         常规椭圆形-小号
-      </p>
+      </div>
       <div class="price">$48.00</div>
     </a>
   </body>
