@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body,
+      ul,
+      p {
+        margin: 0px;
+        padding: 0px;
+      }
+      ul {
+        width: 400px;
+        margin: 0 auto;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+        display: inline-block;
+      }
+      ul {
+        list-style: none;
+      }
+      .item {
+        border: 1px solid #ddd;
+      }
+      .item > a > .num {
+        font-size: 15px;
+        font-weight: 700;
+        color: red;
+        padding-right: 10px;
+      }
+      .item > a > p {
+        display: inline-block;
+        line-height: 30px;
+      }
+      /* .item > a > p::after {
+        content: "";
+        display: inline-block;
+        background-image: url(../../image/hot.svg);
+        width: 16px;
+        height: 16px;
+        position: relative;
+        left: 5px;
+      } */
+      .icon {
+        content: "";
+        display: inline-block;
+
+        width: 16px;
+        height: 16px;
+        position: relative;
+        left: 5px;
+      }
+      .hot {
+        background-image: url(../../image/hot.svg);
+      }
+      .new {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        background: url(https://lf9-static.bytednsdoc.com/obj/eden-cn/pipieh7nupabozups/toutiao_web_pc/icon_hot_board_stick.svg)
+          no-repeat 50%;
+        background-size: contain;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li class="item">
+        <a href="#">
+          <i class="new"></i>
+          <span class="num">1</span>
+          <p class="desc">期待中美关系稳下来、好起来</p>
+          <i class="icon hot"></i>
+        </a>
+      </li>
+    </ul>
+  </body>
+</html>
