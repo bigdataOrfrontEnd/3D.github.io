@@ -5,17 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="../font/iconfont.css" />
   </head>
+  <style>
+    ul,
+    li {
+      /* position: relative;是相对自己原来的位置 */
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+    }
+
+    .home-tool-bar {
+      position: fixed;
+      top: 50px;
+      right: 20px;
+    }
+    .home-tool-bar li {
+      width: 80px;
+      height: 100px;
+      border: 1px solid #ddd;
+      color: #ddd;
+      cursor: pointer;
+    }
+    .iconfont {
+      display: block;
+      margin: 15px;
+      text-align: center;
+      font-size: 30px;
+    }
+    .home-tool-bar li span {
+      display: block;
+      text-align: center;
+      font-size: 14px;
+    }
+    li:hover {
+      color: orange;
+    }
+  </style>
   <body>
     <!-- relative是对原来固定好的位置进行微调 -->
-    <div class="home-tool-bar">
-      <ul>
-        <li><span>手机APP</span></li>
-        <li><span>个人中心</span></li>
-        <li><span>售后服务</span></li>
-        <li><span>人工客服</span></li>
-        <li><span>购物车</span></li>
-      </ul>
-    </div>
+
+    <ul class="home-tool-bar">
+      <li>
+        <i class="iconfont icon-shouji"></i>
+        <span>手机APP</span>
+      </li>
+      <li><i class="iconfont icon-gerenzhongxin"></i><span>个人中心</span></li>
+      <li>
+        <i class="iconfont icon-shouhoufuwuicon"></i><span>售后服务</span>
+      </li>
+      <li><i class="iconfont icon-rengongkefu"></i><span>人工客服</span></li>
+      <li><i class="iconfont icon-gouwuche"></i><span>购物车</span></li>
+    </ul>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br />
   </body>
 </html>

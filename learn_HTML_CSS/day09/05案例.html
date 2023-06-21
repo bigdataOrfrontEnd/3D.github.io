@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      /* 公共样式 */
+      .sprite_01 {
+        background-image: url(../../image/music_sprite_01.png);
+        display: inline-block;
+      }
+      .sprite_02 {
+        background-image: url(../../image/music_sprite_02.png);
+        display: inline-block;
+      }
+      .sprite_02_icon_music {
+        width: 14px;
+        height: 11px;
+        background-position: 0 -24px;
+      }
+
+      .sprite_02_icon_play {
+        width: 16px;
+        height: 17px;
+        background-position: 0 0;
+      }
+      .item {
+        width: 182px;
+        height: 232px;
+        margin: 10px auto;
+      }
+      .item .top {
+        position: relative;
+        width: 140px;
+        height: 140px;
+      }
+      .item .top .cover {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url(../images/music_sprite_01.png);
+        background-position: 0 0;
+      }
+      .item .top .info {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: 27px;
+        background-image: url(../../image/music_sprite_01.png);
+        background-position: 0 -537px;
+      }
+      .item .top .info .count {
+        margin-left: 4px;
+      }
+      .item .top .info .icon-play {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 10px;
+        margin: auto 0;
+      }
+      .bottom {
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .bottom:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <div class="top">
+        <img src="../../image/music.jpg" alt="" />
+        <!-- 遮挡层 -->
+        <a class="cover" href="#"></a>
+        <div class="info">
+          <i class="sprite_01 sprite_02_icon_music icon-music"></i>
+          <span class="count">62万</span>
+          <i class="sprite_02 sprite_02_icon_play icon-play"></i>
+        </div>
+      </div>
+      <div class="bottom">
+        <a href="#">你曾经有多喜欢一个人</a>
+      </div>
+    </div>
+  </body>
+</html>
