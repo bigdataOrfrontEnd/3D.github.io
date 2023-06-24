@@ -20,6 +20,11 @@
         font-weight: normal;
         font-size: 32px;
       }
+      p,
+      h3 {
+        margin: 0;
+        padding: 0;
+      }
       .box-hd {
         width: 1226px;
         margin: 0 auto;
@@ -43,8 +48,47 @@
         clear: both;
       }
       .box-hd2 {
-        width: 1226px;
+        width: 1240px;
         margin: 0 auto;
+      }
+      .item {
+        width: 234px;
+        height: 300px;
+        text-align: center;
+        float: left;
+        margin-right: 14px;
+        margin-bottom: 14px;
+      }
+      .item:hover {
+        box-shadow: 2px 2px 5px #000;
+      }
+      .item:nth-child(1) {
+        height: 614px;
+        margin-bottom: 0;
+      }
+      .imgs {
+        width: 234px;
+        height: 614px;
+      }
+      .item:nth-child(2) img {
+        width: 160px;
+        height: 160px;
+      }
+      .item .title1 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #333;
+
+        margin-top: 14px;
+      }
+      .price {
+        margin-top: 14px;
+      }
+      .new-price {
+        color: red;
+      }
+      .old-price {
+        color: #ddd;
       }
     </style>
   </head>
@@ -59,8 +103,20 @@
       </div>
     </div>
     <div class="box-hd2">
-      <div class="item">1</div>
-      <div class="item">2</div>
+      <div class="item">
+        <img class="imgs" src="../../../image/xiaomi02.webp" alt="" />
+      </div>
+      <div class="item">
+        <img src="../../../image/xiaomi3.webp" alt="" />
+        <div class="title1">
+          <h3>Redmi Note 12T Pro</h3>
+          <p>年度LCD屏幕之光</p>
+        </div>
+        <div class="price">
+          <span class="new-price">1499元起</span>
+          <del> <span class="old-price">1599元</span></del>
+        </div>
+      </div>
       <div class="item">3</div>
       <div class="item">4</div>
       <div class="item">5</div>
@@ -68,8 +124,6 @@
       <div class="item">7</div>
       <div class="item">8</div>
       <div class="item">9</div>
-      <div class="item">10</div>
-      <div class="item">11</div>
     </div>
   </body>
 </html>
