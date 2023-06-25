@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .content {
+        width: 1226px;
+        margin: 0 auto;
+        background-color: aqua;
+      }
+      .content .title {
+        display: flex;
+        width: 1226px;
+        justify-content: space-between;
+      }
+      .content .title h2 {
+        color: #333;
+        font-weight: 200;
+        font-size: 22px;
+        line-height: 50px;
+      }
+      .content .title .more {
+        color: #333;
+        font-size: 14px;
+        font-weight: 200;
+        line-height: 50px;
+      }
+      .content .title .more span {
+        margin-left: 15px;
+      }
+      .content .title .more span:hover {
+        cursor: pointer;
+        color: #ff6700;
+        border-bottom: 2px solid #ff6700;
+      }
+      .content .desc {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .item {
+        width: 234px;
+        height: 300px;
+        margin-top: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="title">
+        <h2>家电</h2>
+        <div class="more">
+          <span>热门</span>
+          <span>电视影音</span>
+        </div>
+      </div>
+      <div class="desc">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/itemRandomColor.js"></script>
+</html>
