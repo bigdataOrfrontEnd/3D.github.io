@@ -13,7 +13,6 @@
       .content {
         width: 1226px;
         margin: 0 auto;
-        background-color: aqua;
       }
       .content .title {
         display: flex;
@@ -42,13 +41,17 @@
       }
       .content .desc {
         display: flex;
-        justify-content: space-between;
+        /* justify-content: space-between; */
         flex-wrap: wrap;
       }
       .item {
         width: 234px;
         height: 300px;
         margin-top: 18px;
+        margin-right: 14px;
+      }
+      .item:nth-child(5n) {
+        margin-right: 0px;
       }
     </style>
   </head>
