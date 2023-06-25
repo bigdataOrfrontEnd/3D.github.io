@@ -46,6 +46,13 @@
       "font_class": "rengongkefu",
       "unicode": "e87c",
       "unicode_decimal": 59516
+    },
+    {
+      "icon_id": "35966619",
+      "name": "大于号",
+      "font_class": "dayuhao",
+      "unicode": "e615",
+      "unicode_decimal": 58901
     }
   ]
 }
