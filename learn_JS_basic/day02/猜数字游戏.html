@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 循环次数
+      var cout = 7;
+      var num = Math.floor(Math.random() * 100);
+      alert(num);
+      for (let i = 0; i < cout; i++) {
+        //   用户输入数字
+        var input = Number(prompt("请输入你的数字"));
+        //   系统随机产生0-99数据
+        if (input === num) {
+          alert("猜对了");
+          break;
+        }
+        if (input > num) {
+          //   document.write("你的数据比较大");
+          alert("猜大了");
+        } else {
+          //   document.write("我的比较大");
+          alert("猜小了");
+        }
+        if (i === cout - 1) alert("次数用完了");
+      }
+    </script>
+  </body>
+</html>

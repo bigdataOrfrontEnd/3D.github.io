@@ -6,22 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>京东banner</title>
     <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./font/iconfont.css" />
     <style>
       .fs_inner {
-        z-index: 1;
-        height: 480px;
-        background-color: #f4f4f4;
         display: flex;
+        padding: 5px 0px;
+        height: 480px;
+        box-sizing: border-box;
       }
       .item {
-        width: 200px;
-        padding: 10px 0px 0px 10px;
+        box-sizing: border-box;
+        width: 190px;
+        background-color: #fefefe;
+      }
+      .item li a {
+        display: inline-block;
+        padding-left: 15px;
+        width: 100%;
+        height: 26px;
+        line-height: 26px;
+        font-size: 14px;
+        color: #333333;
+      }
+      .item li a:hover {
+        background-color: #ddd;
       }
       .banner {
+        position: relative;
+        width: 590px;
+        height: 470px;
+        margin-left: 10px;
+      }
+      .banner img {
+        width: 590px;
+        height: 470px;
+        vertical-align: top;
+      }
+      .slider_control {
+        position: absolute;
+        top: 50%;
+        width: 25px;
+        height: 35px;
+        background-color: #d9d9d9;
+        border-radius: 0;
+        transform: translate(0, -50%);
+      }
+      .slider_control_prev {
+        left: 0;
+        border-top-right-radius: 18px;
+        border-bottom-right-radius: 18px;
+      }
+      .slider_control_next {
+        right: 0;
+        border-top-left-radius: 18px;
+        border-bottom-left-radius: 18px;
+      }
+      .iconfont {
+        color: aliceblue;
+        font-weight: 600;
+        font-size: 12px;
+      }
+      .icon-xiaoyuhao {
+        position: relative;
+        left: -1px;
+        top: -1px;
+      }
+      .icon-dayuhao {
+        position: relative;
+        right: -2px;
       }
       .more {
+        margin-left: 10px;
+        width: 190px;
+        height: 480px;
+        background-color: #ddd;
       }
       .self {
+        margin-left: 10px;
+        width: 190px;
+        height: 480px;
+        background-color: #ddd;
       }
     </style>
   </head>
@@ -31,23 +95,31 @@
         <li><a href="#">家用电器</a></li>
         <li><a href="#">手机/运营商/数码</a></li>
         <li><a href="#">电脑/办公</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">1</a></li>
+        <li><a href="#">家居/家具/加装/厨具</a></li>
+        <li><a href="#">男装/女装/童装/内衣</a></li>
+        <li><a href="#">美妆/个护清洁/宠物</a></li>
+        <li><a href="#">女鞋/箱包/钟表/珠宝</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
+        <li><a href="#">男鞋/运动/户外</a></li>
       </ul>
-      <div class="banner">banner</div>
+      <div class="banner">
+        <img src="./imgs/banner01.jpg" alt="" />
+        <button class="slider_control slider_control_prev">
+          <i class="iconfont icon-xiaoyuhao"></i>
+        </button>
+        <button class="slider_control slider_control_next">
+          <i class="iconfont icon-dayuhao"></i>
+        </button>
+      </div>
       <div class="more">more</div>
       <div class="self">self</div>
     </div>
