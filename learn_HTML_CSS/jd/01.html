@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>京东导航</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./font/iconfont.css" />
+    <style>
+      .shortcut {
+        display: flex;
+        line-height: 40px;
+      }
+      .shortcut .w {
+        flex: 1;
+      }
+      .icon-zuobiao {
+        color: red;
+      }
+      .shortcut .position {
+        font-weight: 200;
+      }
+      .shortcut .fl {
+        display: flex;
+      }
+      .shortcut .fl li a {
+        display: inline-block;
+        font-size: 12px;
+        padding: 0 8px;
+      }
+      .shortcut .fl li a:nth-child(16) {
+        padding: 0;
+      }
+      .shortcut .fl li a:hover {
+        background-color: aliceblue;
+      }
+      .spacer {
+        position: relative;
+        top: 6px;
+        overflow: hidden;
+        margin: 11px 5px 0;
+        width: 1px;
+        height: 10px;
+        background-color: #ccc;
+      }
+      .header {
+        /* margin-top: 40px; */
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shortcut wrap">
+      <div class="w">
+        <i class="iconfont icon-zuobiao"></i>
+        <span class="position">浙江</span>
+      </div>
+      <ul class="fl">
+        <li>
+          <a href="#"><span>你好,请登录</span></a>
+        </li>
+        <li>
+          <a href="#"><span>免费注册 </span></a>
+        </li>
+        <li class="spacer"></li>
+        <li>
+          <a href="#"><span> 我的订单</span></a>
+        </li>
+        <li class="spacer"></li>
+        <li>
+          <a href="#"
+            ><span> 我的京东</span><i class="iconfont icon-xiala"></i
+          ></a>
+        </li>
+        <li class="spacer"></li>
+        <li>
+          <a href="#"
+            ><span>企业采购 </span><i class="iconfont icon-xiala"></i
+          ></a>
+        </li>
+        <li class="spacer"></li>
+        <li>
+          <a href="#"
+            ><span> 商家服务</span><i class="iconfont icon-xiala"></i
+          ></a>
+        </li>
+        <li class="spacer"></li>
+        <li>
+          <a href="#"
+            ><span> 网站导航</span><i class="iconfont icon-xiala"></i
+          ></a>
+        </li>
+        <li class="spacer"></li>
+        <li>
+          <a href="#"><span> 手机京东</span></a>
+        </li>
+        <li class="spacer"></li>
+        <li>
+          <a href="#"><span> 网站无障碍</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="header wrap">
+      <div class="title">
+        <img src="./imgs/title.png" alt="" />
+      </div>
+      <div class="logo_r">
+        <div class="search"></div>
+      </div>
+    </div>
+  </body>
+</html>
