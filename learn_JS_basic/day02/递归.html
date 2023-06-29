@@ -29,9 +29,11 @@
         if (n === 1) {
           return x;
         } else {
-          return x * pow(x, n - 1);
+          var m = x * pow(x, n - 1);
+          return m;
         }
       }
+      debugger;
       console.log(pow(2, 3));
     </script>
   </body>

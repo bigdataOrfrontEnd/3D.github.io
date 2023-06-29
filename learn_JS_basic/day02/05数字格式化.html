@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 从服务器拿到很多的数字
+      var playCount1 = 13687; // 13687
+      var playCount2 = 5433322; // 543万
+      var playCount3 = 8766633333; // 87亿
+      function formatCount(cout) {
+        if (cout >= 10_0000_0000) {
+          return Math.floor(cout / 1_0000_0000) + "亿";
+        } else if (cout >= 10_0000) {
+          return Math.floor(cout / 1_0000) + "万";
+        } else {
+          return cout;
+        }
+      }
+      debugger;
+      console.log(formatCount(playCount1));
+      console.log(formatCount(playCount2));
+      console.log(formatCount(playCount3));
+    </script>
+  </body>
+</html>
