@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1.创建一个对象
+      var person = {
+        name: "县里",
+        age: 19,
+        runing: function () {
+          alert("我是最原始的值");
+        },
+      };
+      //2.增加一个属性
+      person.address = "hanghzou";
+      console.log(person);
+      //3.修改
+      person.name = "xiao";
+      console.log(person);
+      //4. 删除
+      delete person.name;
+      console.log(person);
+      //5.查询
+      console.log(person.age);
+    </script>
+  </body>
+</html>
