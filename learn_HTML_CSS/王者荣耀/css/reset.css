@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.ost_inner {
+  width: 980px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  color: #464646;
+}
