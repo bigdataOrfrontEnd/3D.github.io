@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>动态添加数据</h1>
+    <ul class="list"></ul>
+    <script>
+      var ul = document.querySelector(".list");
+
+      var flag = true;
+      while (flag) {
+        var data = prompt("请输入你的信息");
+        if (!data) {
+          flag = false;
+        } else {
+          // 创建一个li
+          var li = document.createElement("li");
+          //   插入数据
+          li.textContent = data;
+          ul.append(li);
+        }
+      }
+    </script>
+  </body>
+</html>

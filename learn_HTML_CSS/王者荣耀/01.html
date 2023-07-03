@@ -59,14 +59,13 @@
         transform: rotate(90deg);
       }
       .optios {
-        opacity: 0;
         position: absolute;
         top: 41px;
         left: -50px;
       }
-      .ost_total:hover + .optios {
+      /* .ost_total:hover + .optios {
         opacity: 1;
-      }
+      } */
       a:hover {
         color: red;
       }
@@ -83,14 +82,22 @@
         </div>
         <div class="ost_total">
           <span><a href="#">成长守护平台</a></span>
-          <span>腾讯游戏热门推荐</span>
+          <span id="btn">腾讯游戏热门推荐</span>
         </div>
         <div class="optios">
-          <div class="title">客户游戏</div>
+          <div class="title" hidden>客户游戏</div>
         </div>
       </div>
       <div class="ost_inner">223</div>
     </div>
-    <script></script>
+    <script>
+      var btn = document.querySelector("#btn");
+      var h = document.querySelector(".title");
+      console.log(btn);
+      btn.onclick = function () {
+        // 3.直接取反
+        h.hidden = !h.hidden;
+      };
+    </script>
   </body>
 </html>
