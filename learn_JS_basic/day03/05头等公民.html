@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 函数可以作为1. 别的函数的参数、2. 函数的返回值，3.赋值给变量或存储在数据结构中?
+      // 1. 函数在变量之间来回传递
+      function foo(name) {
+        this.name = name;
+        console.log(`name:${name}`);
+      }
+      var bar = foo;
+      bar("小敏");
+      //   2. 别的函数的参数
+      function foo1(name, fn) {
+        fn(name);
+      }
+      function foo2(name) {
+        console.log(`name:${name}`);
+      }
+      foo1("夏利", foo2);
+      //   function foo3() {
+      //     var name = "县里";
+      //     console.log(name);
+      //     return {
+      //       function(name) {
+      //         console.log(name);
+      //       },
+      //     };
+      //   }
+      //   foo3();
+      //   3. 函数的返回值
+      function foo3(name) {
+        function foo4(name) {
+          console.log(`name:${name}`);
+        }
+        return foo4(name);
+      }
+
+      foo3("xiaogn");
+      function foo5(name) {
+        console.log("zhixing", name);
+      }
+      function foo6() {
+        console.log("zxing");
+      }
+      var arr = [foo5, foo6];
+      arr[0]();
+      //   arr[1]();
+      //将方法放到数据结构中
+      var obj = {
+        name: "县里",
+        age: 19,
+        running: (function () {
+          console.log(`${this.age},的${this.name}跑的挺快的`);
+        })(),
+      };
+      (function () {
+        obj.running = function (name) {
+          console.log(name);
+        };
+      })();
+    </script>
+  </body>
+</html>
