@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // String常见的属性：
+      var arr = "hello word";
+      console.log(arr.length);
+      //   使用方法二：通过str.charAt(pos)方法
+      console.log(arr.charAt(10));
+      console.log(arr[11]);
+      //   查找字符串
+      var message = "my name is why.";
+      var name = "why";
+      var index = message.indexOf("oo", 1);
+      console.log(index);
+      if (message.includes(name)) {
+        console.log("包含");
+      } else {
+        console.log("不包含");
+      }
+      //5.replace 替换字符串
+      console.log(message.replace("why", "kob"));
+    </script>
+  </body>
+</html>

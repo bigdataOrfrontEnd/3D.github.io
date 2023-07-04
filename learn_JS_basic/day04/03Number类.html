@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 方法一：toString(base)，将数字转成字符串，并且按照base进制进行转化
+      var str = 13455;
+      var num = str.toString(4);
+      console.log(typeof str);
+      console.log(num);
+      //   方法一：Number.parseInt(string[, radix])，将字符串解析成整数，也有对应的全局方法parseInt；
+      var srt = "aadse";
+      console.log(Number.parseInt(srt));
+      var num1 = "123.521";
+      console.log(parseInt(num1));
+    </script>
+  </body>
+</html>

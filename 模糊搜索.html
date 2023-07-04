@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="">
+      <label for="search">
+        <input type="text" id="inpt" />
+        <div class="box"></div>
+      </label>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <script>
+      // 1. List of items to search in
+      const books = [
+        {
+          title: "Old Man's War",
+          author: {
+            firstName: "John",
+            lastName: "Scalzi",
+          },
+        },
+        {
+          title: "The Lock Artist",
+          author: {
+            firstName: "Steve",
+            lastName: "Hamilton",
+          },
+        },
+      ];
+      // 2. Set up the Fuse instance
+      const fuse = new Fuse(books, {
+        keys: ["title", "author.firstName"],
+      });
+      // 3. Now search!
+
+      //下面的渲染列表
+      var boxEl = document.querySelector(".box");
+      var h2El = document.createElement("h2");
+      //1. 获取input元素
+      var inputEl = document.querySelector("#inpt");
+      inputEl.onkeyup = function (event) {
+        if (event.code) {
+          var fus = fuse.search(inputEl.value);
+          fus.map(function (item) {
+            h2El.textContent = item.item.title;
+          });
+          console.log(fus);
+        }
+      };
+
+      boxEl.append(h2El);
+    </script>
+  </body>
+</html>

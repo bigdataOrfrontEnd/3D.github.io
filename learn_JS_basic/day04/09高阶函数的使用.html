@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // arr.forEach ,arr.map,arr.filter,arr.reduce
+      var nums = [11, 20, 55, 100, 88, 32];
+      var names = ["abc", "cba", "nba", "mba"];
+
+      // nums.forEach(
+      //     function (item) {
+      //     if (item % 2 === 0) {
+      //       console.log(`item:${item}`);
+      //     }
+      //   }
+      //     function (item) {
+      //       console.log(item * 2);
+      //     }
+      //   );
+      //   var num = nums.filter(function (item) {
+      //     if (item % 2 === 0) {
+      //       return item;
+      //     }
+      //   });
+      //   var num = nums.map(function (item) {
+      //     return item * 2;
+      //   });
+      var num = nums.reduce(function (item) {
+        return (item += item);
+      });
+      console.log(num);
+      // 过滤所有的偶数, 映射所有偶数的平方, 并且计算他们的和
+      var n = nums
+        .filter(function (item) {
+          if (item % 2 === 0) {
+            return item;
+          }
+        })
+        .map(function (item) {
+          return item * item;
+        })
+        .reduce(function (item) {
+          return (item += item);
+        });
+      console.log(n);
+    </script>
+  </body>
+</html>

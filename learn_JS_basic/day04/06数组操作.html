@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var taa = [];
+      for (var i = 0; i < 100; i++) {
+        taa.push(i);
+      }
+      console.log(taa);
+      console.log(taa.shift());
+      //删除
+      taa.splice(1, 1, "校长", "嘻哈里");
+      console.log(taa);
+      for (var item in taa) {
+        console.log(item);
+      }
+      for (var item of taa) {
+        console.log(item);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      indexOf方式.
+      手动for循环
+      数组的find方法
+    */
+      var str = ["01", "02", "03", "05"];
+      console.log(str.indexOf("02"));
+      var student = [
+        {
+          id: 1,
+          name: "xiaoli",
+        },
+        {
+          id: 2,
+          name: "小学",
+        },
+        {
+          id: 3,
+          name: "小童",
+        },
+      ];
+      for (var i = 0; i < student.length; i++) {
+        if (student[i].id === 2) {
+          console.log(student[i].name);
+        }
+      }
+      console.log(
+        student.find(function (item) {
+          if (item.id === 2) {
+            return true;
+          }
+        })
+      );
+      var str = student.find(function (item) {
+        if (item.id === 3) {
+          console.log(item);
+          return true;
+        }
+      });
+      console.log(str.id);
+    </script>
+  </body>
+</html>

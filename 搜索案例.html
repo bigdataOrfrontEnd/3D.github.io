@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>搜索案例</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      input {
+        background: none;
+        outline: none;
+        border: none;
+      }
+      input:focus {
+        border: none;
+      }
+      .box {
+        width: 800px;
+        height: 400px;
+        margin: 0 auto;
+      }
+      .search {
+        display: flex;
+        width: 600px;
+        height: 50px;
+
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .search input {
+        padding-top: 20px;
+      }
+      .tag {
+        background-color: #ddd;
+        margin: 10px;
+        border-radius: 14px;
+        padding: 0px 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="search">
+        <!-- <div class="tag">tag</div>
+        <div class="tag">tag</div>
+        <div class="tag">tag</div> -->
+        <label>
+          <input id="inpt" type="search" placeholder="输入请回车" />
+        </label>
+      </div>
+
+      <ul>
+        <li>可以选择列表</li>
+      </ul>
+    </div>
+    <script>
+      //获取到input输入的值
+      var inputEl = document.querySelector("#inpt");
+      var search = document.querySelector(".search");
+      var Div = document.createElement("div");
+      Div.className = "tag";
+
+      inputEl.onkeyup = function (event) {
+        if (event.code === "Enter") {
+          Div.textContent = inputEl.value;
+          console.log(inputEl.value);
+        }
+      };
+      search.append(Div);
+    </script>
+  </body>
+</html>
