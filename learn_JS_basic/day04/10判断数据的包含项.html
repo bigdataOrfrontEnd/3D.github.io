@@ -12,18 +12,38 @@
   </head>
   <body>
     <script>
-      var nums = [11, 20, 55, 100, 88, 32];
-      var nmu = [10, 20, 11];
-      var newnum = [];
-      nums.forEach(function (item) {
-        nmu.find(function (nmmm) {
-          if (item === nmmm) {
-            // 在这里面把cheked改为true
-            newnum.push(nmmm);
+      var nums = [
+        {
+          id: 11,
+          cheked: false,
+        },
+        {
+          id: 12,
+          cheked: false,
+        },
+        {
+          id: 13,
+          cheked: true,
+        },
+        {
+          id: 14,
+          cheked: true,
+        },
+        {
+          id: 20,
+          cheked: true,
+        },
+      ];
+      var nmu = [];
+      nums.forEach((item) => {
+        nmu.find((nmm) => {
+          if (item.id === nmm) {
+            console.log(item);
+            item.cheked = !item.cheked;
           }
         });
       });
-      console.log(newnum);
+      console.log(nums);
     </script>
   </body>
 </html>

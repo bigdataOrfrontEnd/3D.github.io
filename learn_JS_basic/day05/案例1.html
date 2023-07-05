@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        display: inline-flex;
+        align-items: center;
+        height: 30px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 16px;
+      }
+
+      .box img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+      span {
+        font-size: 13px;
+        color: white;
+        margin-right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <img
+        src="https://bfs.biyao.com/group1/M01/A2/67/rBACVGA_iOuAYaTxAAAPbted3yE165.png"
+        alt=""
+      />
+      <span>183***138对这件商品感兴趣</span>
+    </div>
+    <script>
+      // 1.从服务器拿到数据ajax/fetch请求
+      let tipList = [
+        {
+          icon: "https://bfs.biyao.com/group1/M01/A6/97/rBACYWBCHqyAFH5tAAANZXX5Eww646.png",
+          title: "coderwhy对这件商品感兴趣",
+        },
+        {
+          icon: "https://bfs.biyao.com/group1/M01/A2/67/rBACVGA_iOuAYaTxAAAPbted3yE165.png",
+          title: "123***814对这件商品感兴趣",
+        },
+        {
+          icon: "https://bfs.biyao.com/group1/M00/7F/4E/rBACYV16HseAP-PnAAAW9bbVoKE463.png",
+          title: "刘军对这件商品感兴趣",
+        },
+      ];
+      //   1. 获取当前要替换的元素节点
+      var imgSrc = document.querySelector("img");
+      var spanSrc = document.querySelector("span");
+      // 2. 设定一个索引记录当前位置
+      var curntindex = 0;
+      //   3. 定时更改
+      setInterval(function () {
+        // while (curntindex < tipList.length) {
+        //   if (curntindex === tipList.length) {
+        //     curntindex = 0;
+        //   } else {
+        //     imgSrc.src = tipList[curntindex].icon;
+        //     spanSrc.textContent = tipList[curntindex].title;
+        //     curntindex++;
+        //   }
+        // }
+        imgSrc.src = tipList[curntindex].icon;
+        spanSrc.textContent = tipList[curntindex].title;
+        curntindex++;
+        if (curntindex === tipList.length) {
+          curntindex = 0;
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>
