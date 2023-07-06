@@ -15,20 +15,60 @@
       }
       .main {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 1200px;
         height: 342px;
         margin: 0 auto;
       }
       .banner {
+        position: relative;
         width: 604px;
         height: 342px;
+        overflow: hidden;
+      }
+      .banner ul {
+        display: flex;
+      }
+      .banner ul li {
+        width: 604px;
+        height: 342px;
+        transform: translateX(-1812px);
+      }
+      .banner ul li img {
+        display: block;
+        width: 604px;
+        height: 342px;
+      }
+      .flou {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 604px;
+        height: 40px;
+        background-color: black;
+        color: white;
+        z-index: 1;
+      }
+      .desc {
+        padding: 0 10px;
+        height: 40px;
+        line-height: 40px;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-weight: 200;
       }
       .news_center {
         width: 325px;
         height: 342px;
+        background-color: aqua;
       }
       .download_pannel {
         width: 236px;
+        height: 342px;
+        background-color: black;
       }
     </style>
   </head>
@@ -51,15 +91,14 @@
           <li>
             <img src="./img/05.jpeg" alt="" />
           </li>
-
-          <div class="flou">
-            <div class="desc">英雄练习场跟新</div>
-            <div class="desc">新赛季必备知识</div>
-            <div class="desc">亚连英雄故事</div>
-            <div class="desc">开启璀璨新城</div>
-            <div class="desc">王者萌萌假</div>
-          </div>
         </ul>
+        <div class="flou">
+          <div class="desc">英雄练习场跟新</div>
+          <div class="desc">新赛季必备知识</div>
+          <div class="desc">亚连英雄故事</div>
+          <div class="desc">开启璀璨新城</div>
+          <div class="desc">王者萌萌假</div>
+        </div>
       </div>
       <div class="news_center">
         <div class="tab-hd">
