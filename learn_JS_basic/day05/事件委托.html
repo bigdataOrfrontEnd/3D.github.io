@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <script>
+      // 需求:获取当前点击的元素,将字体改变大小
+      //   var liEl = document.querySelectorAll("li");
+      //   //原始方式,给每个元素注册一个事件
+      //   for (var i = 0; i < liEl.length; i++) {
+      //     liEl[i].onmouseover = function (event) {
+      //       console.log(event.target.textContent, i);
+      //     };
+      //   }
+      //使用事件委托的方式:获取到父元素,然后根据event精确定位到点击了哪个元素,就可以给这个元素添加东西了
+      var ulEl = document.querySelector("ul");
+      ulEl.onmouseover = function (event) {
+        console.log(event.target.textContent);
+      };
+    </script>
+  </body>
+</html>

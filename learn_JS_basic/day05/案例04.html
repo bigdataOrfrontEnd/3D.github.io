@@ -102,9 +102,9 @@
         <div class="right"><span class="icon2"></span><span>更多</span></div>
       </div>
       <div class="item_subnav">
-        <div class="item active">精品栏目</div>
+        <div class="item">精品栏目</div>
         <div class="line"></div>
-        <div class="item">赛事精品</div>
+        <div class="item active">赛事精品</div>
         <div class="line"></div>
         <div class="item">英雄攻略</div>
         <div class="dingwei">
@@ -115,6 +115,22 @@
         </div>
       </div>
     </div>
-    <script></script>
+    <script>
+      //1.获取元素,事件委托,2.注册监听事件,2.1给元素添加样式列表
+      var subnav = document.querySelector(".item_subnav");
+      var activeLiEl = subnav.querySelector(".active");
+      subnav.onmouseover = function (event) {
+        //找到当前鼠标所在的元素,然后给这个元素添加样式
+        var newEl = event.target;
+        //移除开始有active的元素的样式
+        if (newEl.classList.contains("item")) {
+          //移除原来的
+          activeLiEl.classList.remove("active");
+          //添加到当前元素上面
+          newEl.classList.add("active");
+          activeLiEl = newEl;
+        }
+      };
+    </script>
   </body>
 </html>
