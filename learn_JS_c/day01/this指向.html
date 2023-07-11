@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. 永远记住谁调用指向谁
+      // 4种指向方式:
+      // 1. 隐式指向
+      // 2. 显式指向
+      function foo(name) {
+        console.log("foo函数:", this);
+      }
+      foo();
+      //   2. 通过对象调用
+      var obj = { name: "why" };
+      obj.aaa = foo;
+      obj.aaa();
+    </script>
+  </body>
+</html>
