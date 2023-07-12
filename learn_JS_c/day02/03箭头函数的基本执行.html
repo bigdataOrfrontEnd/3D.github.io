@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. 箭头函数的特点:
+      // 1.1.没有this
+      //1.2.没有arguments用来找到函数里面的变量使用...arg来替代了
+      //2.箭头函数的写法:
+      //1.1 一个变量可以省略()
+      //1.2一行代码可以省略{}
+      //1.3一行代码但是是返回值的要把return也一起省略
+      //1.4如果返回值是一个对象要使用()来包裹{}
+
+      //   var boor = () => console.log(this);
+      //   boor();
+      //   var foor = function () {
+      //     console.log(this);
+      //   };
+      //   foor();
+      //   var a = {
+      //     name: "xiaoli",
+      //     runnig: function () {
+      //       console.log(this);
+      //     },
+      //   };
+      //   var b = {
+      //     name: "xiaoli",
+      //     runnig: () => console.log(this),
+      //   };
+      //   a.runnig();
+      //   b.runnig();
+      setInterval(() => {
+        console.log(this);
+      }, 5000);
+      setInterval(function () {
+        console.log(this);
+      }, 6000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 模拟网络请求
+      function requirt() {
+        var result = ["小李", "小张", "县里"];
+        console.log(this);
+        // calkback(result);
+      }
+      //   var obj = {
+      //     name: [],
+      //     network: function () {
+      //       requirt("/names", function (res) {
+      //         console.log(this);
+      //         this.name = res;
+      //       });
+      //     },
+      //   };
+      //   obj.network();
+      //   console.log(obj);
+      //   这种写法不错
+      //   var obj = {
+      //     name: [],
+      //     network: requirt,
+      //   };
+      //   var obj = {
+      //     name: [],
+      //     network: function () {
+      //       console.log(this);
+      //     },
+      //   };
+      //   obj.network();
+      // 4.函数作为另外一个函数的返回值
+      function sayHello() {
+        console.log(this);
+        function hi() {
+          console.log("hi kobe");
+          console.log(this);
+        }
+        return hi;
+      }
+
+      var fn = sayHello();
+
+      fn();
+    </script>
+  </body>
+</html>
