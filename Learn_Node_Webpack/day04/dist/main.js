@@ -1,0 +1,1 @@
+(()=>{"use strict";function t(t,n){return t+n}t(20,30),t(10,20)})();
