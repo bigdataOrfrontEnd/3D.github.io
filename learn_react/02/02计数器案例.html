@@ -19,32 +19,50 @@
     ></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
-      //定义一个对象用来将数据,方法放在一起形成一个组件
+      // 定义组件
       class App extends React.Component {
+        //构造函数
         constructor() {
+          //接受父节点就需要
           super();
           this.state = {
-            message: "hemll",
+            message: "hello react",
+            cout: 1,
           };
+          //   由于setState的调用需要使用this,在类里面this是undefined,所以需要改变this指向
+          this.incleart = this.incleart.bind(this);
         }
-
         render() {
+          const { cout } = this.state;
           return (
             <div>
-              <h2>{this.state.message}</h2>
-              <button onClick={this.doClick.bind(this)}>修改样式</button>
+              <h1>计算结果:{cout}</h1>
+              <button onClick={this.incleart}>+1</button>
+              <button
+                onClick={() => {
+                  this.dcleart();
+                }}
+              >
+                -1
+              </button>
             </div>
           );
         }
-        //事件处理函数,在类里面this指向undefined,所以要重新制定this
-        doClick() {
+        //编写事件函数
+        incleart() {
           this.setState({
-            message: "hellow React",
+            cout: this.state.cout + 1,
+          });
+        }
+        dcleart() {
+          this.setState({
+            cout: this.state.cout - 1,
           });
         }
       }
-      //类里面的方法都是严格模式的
+      //创建根节点
       const root = ReactDOM.createRoot(document.querySelector("#root"));
+      //渲染组价
       root.render(<App />);
     </script>
   </body>
