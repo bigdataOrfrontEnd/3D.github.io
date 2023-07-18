@@ -69,6 +69,46 @@
       a:hover {
         color: red;
       }
+      .ost_Title {
+        background: rgba(0, 0, 0, 0.8);
+      }
+      .ost_inner2 {
+        display: flex;
+        width: 1300px;
+        height: 84px;
+        margin: 0 auto;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .titleImg {
+        width: 200px;
+        height: 56px;
+        background-image: url("./img/logo1.webp");
+        background-repeat: no-repeat;
+      }
+      .uul {
+        display: flex;
+
+        height: 84px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .li1 {
+        padding: 0 10px;
+      }
+      .nnn {
+        color: aliceblue;
+        font-weight: 700;
+        font-size: 18px;
+        text-align: center;
+      }
+      .nnnn {
+        margin-top: 5px;
+        text-align: center;
+      }
+      .riii {
+        display: flex;
+      }
     </style>
   </head>
   <body>
@@ -88,7 +128,24 @@
           <div class="title" hidden>客户游戏</div>
         </div>
       </div>
-      <div class="ost_inner">223</div>
+      <div class="ost_Title">
+        <div class="ost_inner2">
+          <h1 class="titleImg"></h1>
+          <ul class="uul">
+            <!-- <li>
+              <p class="nnn">游戏资料</p>
+              <p class="nnnn">DATA</p>
+            </li> -->
+          </ul>
+          <div class="riii">
+            <div>图标</div>
+            <div>
+              <h3>欢迎登录</h3>
+              <p>登录后查看游戏战绩</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script>
       var btn = document.querySelector("#btn");
@@ -98,6 +155,62 @@
         // 3.直接取反
         h.hidden = !h.hidden;
       };
+      //tabar渲染数据
+      const tabar = [
+        {
+          chiser: "游戏资料",
+          data: "DATA",
+        },
+        {
+          chiser: "内容中心",
+          data: "CONTENTS",
+        },
+        {
+          chiser: "内容中心",
+          data: "CONTENTS",
+        },
+        {
+          chiser: "内容中心",
+          data: "CONTENTS",
+        },
+        {
+          chiser: "内容中心",
+          data: "CONTENTS",
+        },
+        {
+          chiser: "内容中心",
+          data: "CONTENTS",
+        },
+        {
+          chiser: "内容中心",
+          data: "CONTENTS",
+        },
+      ];
+      const lis = [];
+      // 获取ul元素;
+      const UL = document.querySelector(".uul");
+      tabar.map((item) => {
+        //创建li和p元素
+        let li = document.createElement("li");
+        //添加样式
+        li.classList.add("li1");
+        const p = document.createElement("p");
+        p.className = "nnn";
+        const p2 = document.createElement("p");
+        p2.className = "nnnn";
+        p.textContent = item.chiser;
+        p2.textContent = item.data;
+        // 给li元素添加事件
+        li.append(p);
+        li.append(p2);
+        lis.push(li);
+      });
+
+      //将创建的元素添加到ul中
+      // UL.append(lis[0]);
+      lis.forEach((item) => {
+        UL.append(item);
+      });
     </script>
   </body>
 </html>

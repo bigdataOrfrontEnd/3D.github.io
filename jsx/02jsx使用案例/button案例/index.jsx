@@ -3,7 +3,8 @@ function getElement(root) {
   const app = document.querySelector(`#${root}`);
   console.log(app);
   //编写一个Element组件
-  // const Button
+  const Button = document;
+  app.append(Button);
 }
 // 执行函数
 getElement("root");
