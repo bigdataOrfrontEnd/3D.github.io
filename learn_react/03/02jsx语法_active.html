@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- 引入依赖 -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      // 定义组件
+      class App extends React.Component {
+        //构造函数
+        constructor() {
+          //接受父节点就需要使用这个super
+          super();
+          this.state = {
+            message: "hello react",
+            name: ["大力水手", "美丽人生", "nba", "出息了"],
+            curnetindex: 0,
+          };
+        }
+        render() {
+          const { name, curnetindex } = this.state;
+          return (
+            <div>
+              <ul>
+                {name.map((item, index) => {
+                  return (
+                    <li
+                      className={curnetindex === index ? "active" : ""}
+                      key={index}
+                      onMouseOver={() => {
+                        this.onMoOver(index);
+                      }}
+                    >
+                      {item}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        }
+        //编写事件函数
+        onMoOver(index) {
+          this.setState({
+            curnetindex: index,
+          });
+        }
+      }
+      //创建根节点
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      //渲染组价
+      root.render(<App />);
+    </script>
+  </body>
+</html>

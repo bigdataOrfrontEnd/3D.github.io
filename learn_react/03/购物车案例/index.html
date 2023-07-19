@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      th {
+        border-collapse: collapse;
+        border: 1px solid #aaa;
+      }
+      th {
+        width: 200px;
+        height: 50px;
+        background-color: #ddd;
+      }
+      td {
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        border: 1px solid #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- 引入依赖 -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="./data.js"></script>
+    <script type="text/babel">
+      // 定义组件
+      class App extends React.Component {
+        //构造函数
+        constructor() {
+          //接受父节点就需要
+          super();
+          this.state = {
+            message: "hello react",
+            books: books,
+            theade: [
+              "序号",
+              "书籍名称",
+              "出版日期",
+              "价格",
+              "购买数量",
+              "操作",
+            ],
+            cout: 0,
+          };
+        }
+        render() {
+          const { books, theade, cout } = this.state;
+          return (
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    {theade.map((item) => (
+                      <th key={item}>{item}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {books.map((item, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{item.id}</td>
+                        <td>{item.name}</td>
+                        <td>{item.date}</td>
+                        <td>{"$" + Number(item.price).toFixed(2)}</td>
+                        <td>
+                          <button>-</button>
+                          {item.count}
+                          <button>+</button>
+                        </td>
+                        <td>
+                          <button>删除</button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              <div>
+                <h1>
+                  总价格:<span>{cout}</span>
+                </h1>
+              </div>
+            </div>
+          );
+        }
+        //编写事件函数
+        // 求总价格
+      }
+      //创建根节点
+      const root = ReactDOM.createRoot(document.querySelector("#root"));
+      //渲染组价
+      root.render(<App />);
+    </script>
+  </body>
+</html>

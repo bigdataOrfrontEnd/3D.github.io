@@ -1,1 +1,0 @@
-document.querySelector("#root").textContent="hello word";

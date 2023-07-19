@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/bigdataOrfrontEnd/3D.github.io#readme",
   "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.0.2"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3"
   }
 }
