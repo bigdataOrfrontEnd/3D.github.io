@@ -12,7 +12,11 @@
   "author": "17639638825",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.4.0",
+    "http-proxy-middleware": "^2.0.6",
     "mini-css-extract-plugin": "^2.7.6",
+    "styled-components": "^6.0.4",
+    "three.js": "^0.77.1",
     "webpack": "^5.88.2"
   },
   "devDependencies": {

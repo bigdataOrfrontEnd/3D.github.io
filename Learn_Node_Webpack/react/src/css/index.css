@@ -1,0 +1,18 @@
+.tabl {
+  display: flex;
+}
+.ChildBox {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  width: 600px;
+  height: 50px;
+  background-color: #ddd;
+}
+.ChildBox .Item {
+  margin: 0 50px;
+}
+.ChildBox .active {
+  color: red;
+}
