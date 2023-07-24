@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import About from "./page/about.jsx";
 import Home from "./page/Home.jsx";
 import Profile from "./page/Profile.jsx";
+import Category from "./page/category.jsx";
 import { store } from "./store/index";
 import { Provider } from "react-redux";
 import "./style.less";
@@ -30,6 +31,7 @@ export class Index extends Component {
             <Home></Home>
             <Profile></Profile>
             <About></About>
+            <Category></Category>
           </div>
         </div>
       </Provider>
