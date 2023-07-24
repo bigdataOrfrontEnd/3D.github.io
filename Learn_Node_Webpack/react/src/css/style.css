@@ -1,0 +1,20 @@
+.box {
+  text-align: center;
+  width: 1000px;
+  margin: 0 auto;
+}
+.box .main {
+  display: flex;
+}
+.box .main .Home {
+  width: 50%;
+}
+button {
+  box-sizing: border-box;
+  margin: 5px;
+  width: 100px;
+  height: 50px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  background-color: aqua;
+}
