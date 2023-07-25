@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Index from "./05_react_redux/index.jsx";
+import ReactRouter from "./react-router/01原理实现.jsx";
+// import Index from "./05_react_redux/index.jsx";
 
 // import Contee from "./03_组件间通信/02非父子组件通信.jsx";
 // import Aec from "./03_组件间通信/01_组件间的嵌套.jsx";
@@ -18,7 +19,8 @@ export default class App extends Component {
       <div className="box">
         {/* <Aec /> */}
         {/* <Contee></Contee> */}
-        <Index></Index>
+        {/* <Index></Index> */}
+        <ReactRouter></ReactRouter>
       </div>
     );
   }
