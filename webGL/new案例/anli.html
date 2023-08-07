@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .wrap {
+        position: relative;
+        width: 360px;
+        height: 40px;
+        margin: 5px auto;
+        background: #ddd;
+        /* font-size: 0; */
+        overflow: hidden;
+        border: 1px solid #ddd;
+      }
+      .wrap .cont {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* 宽度 大于容器的两倍即可 */
+        width: 300%;
+        font-size: 18px;
+        color: #fff;
+        background: #000;
+        -webkit-animation: 5s move infinite linear;
+      }
+
+      @-webkit-keyframes move {
+        /* 原理 left值的变化 移动一个容器的宽度 */
+        0% {
+          left: 0;
+        }
+        100% {
+          left: -200%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="cont">1.文字,2.文字如果超出了yfyt</div>
+    </div>
+
+    <div class="wrap">
+      <div class="cont">
+        1.文字如滚动。aefgsregtrsgsdgfsra恶法1.文字如滚动。aefgsregtrsgsdgfsra恶法
+      </div>
+    </div>
+  </body>
+</html>

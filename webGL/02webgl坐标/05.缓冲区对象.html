@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 1200px;
+        margin: 50px auto;
+      }
+
+      /* //给canvas一个背景 */
+      #canvas {
+        width: 400px;
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one">
+      <canvas id="canvas" width="400" height="400"></canvas>
+    </div>
+  </body>
+  <script src="../js/lib/init.js"></script>
+  <script>
+    const ctx = document.getElementById("canvas");
+    const gl = ctx.getContext("webgl");
+    //顶点着色器
+    const VERTEX_SHADER_SOURCE = `
+    attribute vec4 aPosition;
+      void main(){
+        gl_Position = aPosition;//vec4(0.0,0.0,0.0,1.0);
+        gl_PointSize = 10.0;
+      }
+    `;
+    // 片元着色器
+    const FRAGMENT_SHADER_SOURCE = `
+    precision mediump float;
+    uniform vec2 uColor;
+      //vec4(uColor.r,uColor.g,0.0,1.0) //
+      void main(){
+        gl_FragColor =  vec4(0.0,0.0, 0.0,1.0);
+      }
+    `;
+    const program = inits(gl, VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
+    const aPosition = gl.getAttribLocation(program, "aPosition");
+    const points = new Float32Array([-0.5, -0.5, 0.5, -0.5, 0.0, 0.5]);
+    //创建缓冲区对象
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, points, gl.STATIC_DRAW);
+    gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(aPosition);
+    gl.drawArrays(gl.POINTS, 0, 3);
+  </script>
+</html>

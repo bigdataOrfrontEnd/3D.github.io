@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webgl绘制一个点</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+  </body>
+  <script src="../js/lib/init.js"></script>
+  <script>
+    //获取dom元素
+    // const ctx = document.querySelector("#canvas");
+    const ctx = document.getElementById("canvas");
+    //调用接口
+    const gl = ctx.getContext("webgl");
+    //着色器，它是需要接受浮点数的
+    //gl_Positon:绘制坐标点
+    //gl_PointSize：点的大小
+    // gl_Positon写错了
+    // 顶点着色器
+    const VERTEX_SHADER_SOURCE = `
+      void main(){
+        gl_Position = vec4(0.0,0.0,0.0,1.0);
+        gl_PointSize = 10.0;
+      }
+    `;
+    //   const VERTEX_SHADER_SOURCE = `
+    //   void main() {
+    //     gl_Position = vec4(0.0,0.0,0.0,1.0);
+    //     gl_PointSize = 10.0;
+    //   }
+    // `;
+    // 片元着色器
+    const FRAGMENT_SHADER_SOURCE = `
+    
+      void main(){
+        gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+      }
+    `;
+    //   const FRAGMENT_SHADER_SOURCE = `
+    //   // precision lowp float;
+    //   void main() {
+    //     // 计算距离
+    //     gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+    //   }
+    // `; // 片元着色器
+    //创建着色器
+    // const vertextshader = gl.createShader(gl.VERTEX_SHAPER_SOURCE);
+    // const vertextshader = gl.createShader(gl.VERTEX_SHADER);
+    // const fragmentshade = gl.createShader(gl.FRAGMENT_SHADER);
+    // //指定着色器源码
+    // gl.shaderSource(vertextshader, VERTEX_SHADER_SOURCE);
+    // gl.shaderSource(fragmentshade, FRAGMENT_SHADER_SOURCE);
+    // //编译着色器
+    // gl.compileShader(vertextshader);
+    // gl.compileShader(fragmentshade);
+    // // 创建一个程序对象
+    // const program = gl.createProgram();
+    // gl.attachShader(program, vertextshader);
+    // gl.attachShader(program, fragmentshade);
+    // gl.linkProgram(program);
+    // gl.useProgram(program);
+    inits(gl, VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
+
+    //绘制
+    gl.drawArrays(gl.POINTS, 0, 1);
+  </script>
+</html>

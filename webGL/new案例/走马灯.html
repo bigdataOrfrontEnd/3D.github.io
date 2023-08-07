@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>走马灯实现</title>
+    <style>
+      .wrap {
+        position: relative;
+        width: 40%;
+        height: 40px;
+        margin: 10% auto;
+        background: #ddd;
+        /* 设置文字是否显示 */
+        font-size: 0;
+        /* 超出部分不显示 */
+        overflow: hidden;
+      }
+      .wrap .cont {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* 宽度 大于容器的两倍即可 */
+        width: 200%;
+        -webkit-animation: 5s move infinite linear;
+      }
+      .wrap .txt {
+        font-size: 18px;
+        color: #fff;
+        display: inline-block;
+        /* 宽度 等于容器的宽度 */
+        width: 100%;
+        height: 30px;
+        border-left: 1px solid #fff;
+        line-height: 30px;
+        text-align: center;
+        margin-top: 5px;
+        background: #000;
+      }
+      @-webkit-keyframes move {
+        /* 原理 left值的变化 移动一个容器的宽度 */
+        0% {
+          left: 0;
+        }
+        100% {
+          left: -100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="wrap">
+        <div class="cont">
+          <p class="txt">
+            1.文字如果超出了宽度自动向左滚动文字如果超出了宽度自动向左滚动。
+          </p>
+          <p class="txt">
+            2.文字如果超出了宽度自动向左滚动文字如果超出了宽度自动向左滚动。
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
