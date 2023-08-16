@@ -50,36 +50,35 @@ function render(element, container) {
     .filter(isProperty)
     .forEach((prop) => (node[prop] = element.props[prop]));
   //3. 使用递归对子元素执行相同的操作
+  //todo:这个递归会导致性能底下
   element.props.children.forEach((child) => {
     render(child, node);
   });
   //2. 将Dom元素挂载到root上
   container.appendChild(node);
 }
+
 const Didact = {
   createElement,
   render,
 };
-
 //test
-//这个注释就是告诉babel用我的方法来解析下面的代码
-/** @jsx Didact.createElement*/
-const element = (
-  <div id="foo">
-    <a>bar</a>
-    <b />
-  </div>
-);
-// let a = a;
-// let b = b;
-// console.log(Didact.createElement("div", null, a, b));
-console.log(element);
+//这个注释就是告诉babel用我的方法来解析下面的代码,这个需要放入到https://babeljs.io/中去执行
 // /** @jsx Didact.createElement*/
-// const App = (
+// const element = (
 //   <div id="foo">
 //     <a>bar</a>
-//     <b></b>
+//     <b />
 //   </div>
+// );
+// babel中执行的结果是这个样子的
+// const element = Didact.createElement(
+//   "div",
+//   {
+//     id: "foo",
+//   },
+//   Didact.createElement("a", null, "bar"),
+//   Didact.createElement("b", null)
 // );
 const App = Didact.createElement(
   "div",
