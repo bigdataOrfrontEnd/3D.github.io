@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.active {
+  /* 鼠标变为一个小手 */
+  cursor: grabbing;
+}
+.slide {
+  width: 260px;
+  height: 100%;
+  /* 出现滚动条 */
+  overflow: scroll;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+#list {
+  /* 文本上双击，文本会被选取或高亮显示。此属性用于阻止这种行为 */
+  user-select: none;
+}
+#list .item {
+  background-color: rgba(0, 0, 0, 0.15);
+  width: 120px;
+  display: inline-block;
+  /* 您可以告知浏览器在图像、代码片段、表格以及列表内部避免中断 */
+  break-inside: avoid;
+  margin-bottom: 4px;
+}
+#list .item:hover {
+  cursor: grab;
+  filter: brightness(90%);
+}
+#list .item:active {
+  cursor: grabbing;
+}
+.grid {
+  column-count: 2;
+  column-gap: 0px;
+}
+#content {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  margin-left: 45px;
+  background: rgba(0, 0, 0, 0.07);
+}
+#content .item {
+  position: absolute;
+  transform-origin: top left;
+}
+.flutter {
+  position: absolute;
+  z-index: 9999;
+  pointer-events: none;
+}
