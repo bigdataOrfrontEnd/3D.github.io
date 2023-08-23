@@ -16,6 +16,7 @@ document.getElementById("list").addEventListener("mousedown", function (e) {
     cloneEl.classList.add("flutter"); //添加样式让其浮动
     e.target.parentElement.appendChild(cloneEl); //将克隆的元素加入列表
     dragging = true;
+    e.target.classList.add("hide");
     const fakeSize = parseInt(100 * randomNum(3, 5)); //模拟随机大小的原图
     // 1.3可以封装为一个初始化方法
     initial = {
@@ -43,6 +44,11 @@ window.addEventListener("mousemove", (e) => {
     changeStyle(options);
   }
 });
+//4.在目标区域抬起
+document.getElementById("content").addEventListener("mouseup", (e) => {
+  //当鼠标进入目标区域,并松开鼠标,将此时的鼠标位置信息给图片
+  done(e.offsetX, e.offsetY);
+});
 // 3. 鼠标抬起
 window.addEventListener("mouseup", (e) => {
   //标识符关闭
@@ -56,6 +62,21 @@ window.addEventListener("mouseup", (e) => {
     cloneEl.remove(); //移除克隆的元素
   }, 300);
 });
+//完成处理
+function done(x, y) {
+  console.log(x, y);
+  // 没有克隆元素,进入这个区域松开鼠标也没用
+  if (!cloneEl) return;
+  const newEl = cloneEl.cloneNode(true);
+  newEl.classList.remove("flutter");
+  // newEl.src = cloneEl.getAttribute("raw");
+  newEl.style.cssText = `left:${x - initial.offsetX}px;top:${
+    y - initial.offsetY
+  }px;`;
+  document.getElementById("content").appendChild(newEl);
+  // cloneEl.remove();
+  cloneEl = null; //移动完就把拷贝的元素删除
+}
 //将数组中的样式分解出来
 function changeStyle(arr) {
   // 将浮动元素的样式分割放入数组中
