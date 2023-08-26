@@ -15,10 +15,26 @@ class MyPromise {
     this.status = PENDING; //初始状态为pending
     this.value = null;
     this.reason = null;
+    this._status = PENDING; // 新增变量，配合status的set,get,具体要他干啥还不知道
+    this.FULFILLED_CALLBACK = null;
+    this.REJECTED_CALLBACK = null;
     try {
       callback(this.resolve.bind(this), this.reject.bind(this));
     } catch (error) {
       this.reject(error);
+    }
+  }
+  get status() {
+    return this._status;
+  }
+  set status(newStatus) {
+    this._status = newStatus; // 用_status防止嵌套触发set,陷入死循环
+    // 状态改变的时候立即调用存储的回调
+    if (newStatus === FULFILLED) {
+      this.FULFILLED_CALLBACK(this.value);
+    }
+    if (newStatus === REJECTED) {
+      this.REJECTED_CALLBACK(this.reason);
     }
   }
   //promise的状态只能由pending(待定)-->fulfilled(已兑现)或者pending--->rejected(已拒绝)
@@ -41,6 +57,7 @@ class MyPromise {
     }
   }
   //实现then方法
+  //then方法对异步的支持,当状态处于pending的时候,要把回调函数存放起来,等到状态改变了再调用(使用了get和set方法)
   then(onFulfilled, onRejected) {
     switch (this.status) {
       case FULFILLED:
@@ -49,10 +66,23 @@ class MyPromise {
       case REJECTED:
         onRejected(this.reason);
         break;
+      case PENDING:
+        //将回调函数存储起来,等待调用
+        this.FULFILLED_CALLBACK = onFulfilled;
+        this.REJECTED_CALLBACK = onRejected;
     }
   }
 }
 //test1
+// new MyPromise((resolve, reject) => {
+//   resolve(11);
+// }).then((value) => console.log(value));
+
 new MyPromise((resolve, reject) => {
-  resolve(11);
+  let a = null;
+  console.log(a);
+  // 定时器是异步的
+  setTimeout(() => {
+    resolve(11);
+  }, 0);
 }).then((value) => console.log(value));
