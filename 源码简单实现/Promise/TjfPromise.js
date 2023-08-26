@@ -46,14 +46,14 @@ class MyPromise {
 
   resolve(value) {
     if (this.status === PENDING) {
+      this.value = value; //// 赋值要在状态改变的前面，顺序不能变,否则输出null
       this.status = FULFILLED;
-      this.value = value;
     }
   }
   reject(reason) {
     if (this.status === PENDING) {
-      this.status = REJECTED;
       this.reason = reason;
+      this.status = REJECTED;
     }
   }
   //实现then方法
@@ -79,10 +79,8 @@ class MyPromise {
 // }).then((value) => console.log(value));
 
 new MyPromise((resolve, reject) => {
-  let a = null;
-  console.log(a);
   // 定时器是异步的
   setTimeout(() => {
     resolve(11);
-  }, 0);
+  }, 1000);
 }).then((value) => console.log(value));
