@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "base": "webpack --config ./webpack/01base.js",
+    "base": "webpack --config ./webpack/01base.js --profile --json=stats.json",
     "02": "webpack --config ./webpack/02css_loader.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

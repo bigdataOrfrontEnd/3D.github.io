@@ -306,3 +306,62 @@ module.exports = merge(common, {
   mode: "production",
 });
 ```
+
+# 到此 webpack 开发所需要的所有的环境都配置结束
+
+webpack 配置文件有两种它可以返回对象，或者是返回一个函数
+
+# webpack 优化
+
+## react 项目优化
+
+https://juejin.cn/post/7029205279271026701
+https://cloud.tencent.com/developer/article/1749704
+
+# webpack 量化分析方式
+
+1. 打包过程中,每个插件打包使用的时间
+   npm i speed-measure-webpack-plugin -D
+   主要是测量每一个 loader 使用的时间:例如我们发现 babel-loader 使用时间很长,就可以修改他的 test 等
+
+   ```js
+   "scripts"{
+   "build":"webpack --config --profile --json=stats.json"
+   }
+   ```
+
+   将生成的 stats.json 文件上传到http://webpack.github.com/analyse,或者自己搭建这个然后分析
+
+2. 分析打包后文件的大小
+
+   npm install webpack-bundle-analyzer -D
+
+   ```js
+   const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+   new BundleAnalyzerPlugin({
+     analyzerMode: "server",
+     analyzerHost: "127.0.0.1",
+     analyzerPort: 8888,
+     openAnalyzer: true, // 构建完打开浏览器
+     reportFilename: path.resolve(__dirname, `analyzer/index.html`),
+   });
+   ```
+
+## 配合截图看的
+
+source-map babel,webpack 服务器 webpack 分包:入口起点 动态导入 自定义分包 CDN 服务器
+webpack 垫片:shimming 优化:提取 css 文件 JS-Css 的压缩 配置的分离,TreeShaking Http 压缩 打包分析
+
+## 使用方面的答案
+
+在工作中使用 webpack 主要做性能优化和量化性能分析
+
+1. 量化性能分析
+2. 性能优化主要是两个方面:
+   - 构建结果方面的性能优化
+   - 开发环境中构建速度的性能优化
+3. 开发环境配置跨域请求
+
+## 原理方面的答案
+
+## 自定义 loader 和 plugin
