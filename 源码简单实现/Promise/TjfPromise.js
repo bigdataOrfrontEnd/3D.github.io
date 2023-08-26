@@ -16,8 +16,8 @@ class MyPromise {
     this.value = null;
     this.reason = null;
     this._status = PENDING; // 新增变量，配合status的set,get,具体要他干啥还不知道
-    this.FULFILLED_CALLBACK = null;
-    this.REJECTED_CALLBACK = null;
+    this.FULFILLED_CALLBACK = [];
+    this.REJECTED_CALLBACK = [];
     try {
       callback(this.resolve.bind(this), this.reject.bind(this));
     } catch (error) {
@@ -31,10 +31,10 @@ class MyPromise {
     this._status = newStatus; // 用_status防止嵌套触发set,陷入死循环
     // 状态改变的时候立即调用存储的回调
     if (newStatus === FULFILLED) {
-      this.FULFILLED_CALLBACK(this.value);
+      this.FULFILLED_CALLBACK.forEach((caback) => caback(this.value));
     }
     if (newStatus === REJECTED) {
-      this.REJECTED_CALLBACK(this.reason);
+      this.REJECTED_CALLBACK.forEach((caback) => caback(this.reason));
     }
   }
   //promise的状态只能由pending(待定)-->fulfilled(已兑现)或者pending--->rejected(已拒绝)
@@ -68,8 +68,8 @@ class MyPromise {
         break;
       case PENDING:
         //将回调函数存储起来,等待调用
-        this.FULFILLED_CALLBACK = onFulfilled;
-        this.REJECTED_CALLBACK = onRejected;
+        this.FULFILLED_CALLBACK.push(onFulfilled);
+        this.REJECTED_CALLBACK.push(onRejected);
     }
   }
 }
@@ -78,9 +78,19 @@ class MyPromise {
 //   resolve(11);
 // }).then((value) => console.log(value));
 
-new MyPromise((resolve, reject) => {
+// new MyPromise((resolve, reject) => {
+//   // 定时器是异步的
+//   setTimeout(() => {
+//     resolve(11);
+//   }, 1000);
+// }).then((value) => console.log(value));
+// 测试一下多次调用
+const promise = new MyPromise((resolve, reject) => {
   // 定时器是异步的
   setTimeout(() => {
     resolve(11);
   }, 1000);
-}).then((value) => console.log(value));
+});
+promise.then((value) => console.log("1", value));
+promise.then((value) => console.log("2", value));
+promise.then((value) => console.log("3", value));
