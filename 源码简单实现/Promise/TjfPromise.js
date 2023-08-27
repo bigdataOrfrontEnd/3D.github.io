@@ -1,3 +1,5 @@
+// https://juejin.cn/post/7014402115053322247#heading-10
+
 //在通过new创建Promise对象时，我们需要传入一个回调函数，我们称之为executor
 // promise接受一个立即执行的函数，该函数有两个回调参数，resolve,reject
 // promise有三个状态，pending, fulfilled, rejected, 且只能由pending转为其他两中状态
@@ -57,20 +59,81 @@ class MyPromise {
     }
   }
   //实现then方法
-  //then方法对异步的支持,当状态处于pending的时候,要把回调函数存放起来,等到状态改变了再调用(使用了get和set方法)
+  //1.then方法对异步的支持,当状态处于pending的时候,要把回调函数存放起来,等到状态改变了再调用(使用了get和set方法)
+  //2.then方法本身是有返回值的，它的返回值是一个Promise,然后是具体这个promise处于什么状态
+  //2.1 then方法中对回调参数的判断----then方法如果传入的参数不是或者没有传值，应该做处理为一个直接返回的函数
+
   then(onFulfilled, onRejected) {
-    switch (this.status) {
-      case FULFILLED:
-        onFulfilled(this.value);
-        break;
-      case REJECTED:
-        onRejected(this.reason);
-        break;
-      case PENDING:
-        //将回调函数存储起来,等待调用
-        this.FULFILLED_CALLBACK.push(onFulfilled);
-        this.REJECTED_CALLBACK.push(onRejected);
+    const realOnFulfilled = this.isFunction(onFulfilled)
+      ? onFulfilled
+      : (value) => value;
+    const realOnRejected = this.isFunction(onRejected)
+      ? onRejected
+      : (reason) => {
+          throw reason;
+        };
+    const Promise2 = new MyPromise((resolve, reject) => {
+      const fulfilledMicrotask = () => {
+        try {
+          queueMicrotask(() => {
+            const x = realOnFulfilled(this.value);
+            this.resolvePromise(Promise2, x, resolve, reject);
+          });
+        } catch (error) {
+          reject(error);
+        }
+      };
+      const rejectedMicrotask = () => {
+        try {
+          queueMicrotask(() => {
+            const x = realOnFulfilled(this.reason);
+            this.resolvePromise(Promise2, x, resolve, reject);
+          });
+        } catch (error) {
+          reject(error);
+        }
+      };
+
+      switch (this.status) {
+        case FULFILLED:
+          fulfilledMicrotask(this.value);
+          break;
+        case REJECTED:
+          rejectedMicrotask(this.reason);
+          break;
+        case PENDING:
+          //将回调函数存储起来,等待调用
+          this.FULFILLED_CALLBACK.push(onFulfilled);
+          this.REJECTED_CALLBACK.push(onRejected);
+      }
+    });
+    return Promise2;
+  }
+  resolvePromise(promise2, x, resolve, reject) {
+    if (x === promise2) {
+      return new TypeError("the promise and x refer to the same");
     }
+    if (x instanceof MyPromise) {
+      queueMicrotask(() => {
+        x.then((y) => {
+          this.resolvePromise(promise2, y, resolve, reject);
+        }, reject);
+      });
+    } else if (typeof x === "object" || this.isFunction(x)) {
+      if (x === null) resolve(x);
+      let then = null;
+      try {
+        then = x.then;
+      } catch (error) {
+        return reject(error);
+      }
+      resolve(x);
+    }
+  }
+
+  //验证是否为函数
+  isFunction(func) {
+    return typeof func === "function";
   }
 }
 //test1
@@ -85,12 +148,12 @@ class MyPromise {
 //   }, 1000);
 // }).then((value) => console.log(value));
 // 测试一下多次调用
-const promise = new MyPromise((resolve, reject) => {
-  // 定时器是异步的
-  setTimeout(() => {
-    resolve(11);
-  }, 1000);
-});
-promise.then((value) => console.log("1", value));
-promise.then((value) => console.log("2", value));
-promise.then((value) => console.log("3", value));
+// const promise = new MyPromise((resolve, reject) => {
+//   // 定时器是异步的
+//   setTimeout(() => {
+//     resolve(11);
+//   }, 1000);
+// });
+// promise.then((value) => console.log("1", value));
+// promise.then((value) => console.log("2", value));
+// promise.then((value) => console.log("3", value));
