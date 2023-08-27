@@ -135,6 +135,15 @@ class MyPromise {
   isFunction(func) {
     return typeof func === "function";
   }
+  //   静态resolve方法就是返回了一个promise对象
+  static resolve(value) {
+    if (value instanceof MyPromise) {
+      return value;
+    }
+    return new MyPromise((resolve, reject) => {
+      resolve(value);
+    });
+  }
 }
 //test1
 // new MyPromise((resolve, reject) => {
