@@ -144,6 +144,12 @@ class MyPromise {
       resolve(value);
     });
   }
+  //静态reject方法返回一个带有reason的promise对象
+  static reject(reason) {
+    return new MyPromise((resolve, reject) => {
+      reject(reason);
+    });
+  }
 }
 //test1
 // new MyPromise((resolve, reject) => {
