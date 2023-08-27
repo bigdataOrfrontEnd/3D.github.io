@@ -150,6 +150,8 @@ class MyPromise {
       reject(reason);
     });
   }
+  static race(promiselist) {}
+  static all(promiselist) {}
 }
 //test1
 // new MyPromise((resolve, reject) => {
