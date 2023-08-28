@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    1111
+  </body>
+  <script>
+    const ws = new WebSocket("ws://localhost:3002");
+    ws.onopen = function () {
+      console.log("链接成功");
+      ws.send(1111);
+    };
+
+    ws.onmessage = function (event) {
+      console.log("接收到服务端消息" + event.data);
+    };
+  </script>
+</html>
+<!-- const ws = useRef(null);
+  const [message, setMessage] = useState("");
+  useLayoutEffect(() => {
+    ws.current = new WebSocket("ws://localhost:3002");
+    ws.current.onopen = function () {
+      console.log("链接成功");
+      ws.current.send(1111);
+    };
+    ws.current.onmessage = function (event) {
+      console.log("接收到服务端消息" + event.data);
+      setMessage(event.data);
+    };
+  }, [ws]); -->
