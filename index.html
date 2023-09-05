@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const g = {
+        A: ["D"],
+        B: ["F", "G"],
+        C: ["G"],
+        D: ["E"],
+        E: ["H"],
+        F: ["A"],
+        G: ["H"],
+        H: [],
+      };
+      async function analyze(node) {
+        const visited = new Set();
+        const result = [];
+
+        async function dfs(currentNode) {
+          visited.add(currentNode);
+
+          for (const neighbor of g[currentNode] || []) {
+            if (!visited.has(neighbor)) {
+              await dfs(neighbor);
+            }
+          }
+
+          result.push(currentNode);
+        }
+
+        await dfs(node);
+
+        return result;
+      }
+      async function main() {
+        const startingNode = "A";
+        const result = await analyze(startingNode);
+        console.log(result);
+      }
+
+      main();
+    </script>
+  </body>
+</html>
+<!-- {
+  "A": [
+    "D"
+  ],
+  "B": [
+    "F",
+    "G"
+  ],
+  "C": [
+    "G"
+  ],
+  "D": [
+    "E"
+  ],
+  "E": [
+    "H"
+  ],
+  "F": [
+    "A"
+  ],
+  "G": [
+    "H"
+  ],
+  "H": []
+} -->
