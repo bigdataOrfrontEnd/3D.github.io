@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>可展开表格</title>
+    <style>
+      /* 表格样式 */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      /* 展开按钮样式 */
+      .expand-button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>城市</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>张三</td>
+          <td>25</td>
+          <td>北京</td>
+          <td class="expand-button">+</td>
+        </tr>
+        <tr class="hidden-row">
+          <td colspan="4">
+            <div>
+              <p>详细信息：</p>
+              <p>性别：男</p>
+              <p>职业：工程师</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>李四</td>
+          <td>30</td>
+          <td>上海</td>
+          <td class="expand-button">+</td>
+        </tr>
+        <tr class="hidden-row">
+          <td colspan="4">
+            <div>
+              <p>详细信息：</p>
+              <p>性别：男</p>
+              <p>职业：设计师</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      // 获取所有展开按钮
+      const expandButtons = document.querySelectorAll(".expand-button");
+
+      // 添加点击事件监听器
+      expandButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const hiddenRow = button.parentElement.nextElementSibling;
+          // 切换行的可见性
+          hiddenRow.classList.toggle("hidden-row");
+          // 切换按钮的文本
+          if (button.textContent === "+") {
+            button.textContent = "-";
+          } else {
+            button.textContent = "+";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

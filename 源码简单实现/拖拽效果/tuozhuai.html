@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .draggable-style {
+      border: 1px solid #ddd;
+    }
+    .ratge {
+      position: absolute;
+      top: 20px;
+      left: 5px;
+      width: 100px;
+      height: 200px;
+    }
+  </style>
+  <body>
+    <div draggable="true" id="draggableBox">可以拖拽的文件</div>
+    <div style="height: 500px" id="target"></div>
+    <script>
+      const draggableBox = document.getElementById("draggableBox");
+      draggableBox.ondragstart = function (event) {
+        console.log("开始拖拽", event);
+        event.target.classList.add("draggable-style");
+      };
+      draggableBox.ondrag = function (event) {
+        console.log("桌拽中", event);
+      };
+      draggableBox.ondragend = function (event) {
+        console.log("拖拽结束", event);
+        event.target.classList.remove("draggable-style");
+      };
+      const target = document.getElementById("target");
+      target.ondragenter = function (event) {
+        console.log("进入目标");
+      };
+      target.ondragover = function (event) {
+        event.preventDefault();
+        console.log("在目标元素中拖拽");
+      };
+      target.ondrop = function (event) {
+        console.log("在目标元素中拖放");
+        event.target.classList.add("ratge");
+      };
+    </script>
+  </body>
+</html>
