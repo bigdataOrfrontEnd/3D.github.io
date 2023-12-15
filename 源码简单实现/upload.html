@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" multiple id="imgLocal" accept="image/*" />
+  </body>
+  <script>
+    let inp = document.querySelector("#imgLocal");
+    inp.onchange = function (e) {
+      let fileList = document.querySelector("#imgLocal").files;
+      console.log(fileList); //files
+    };
+    //继续使用上文的fileList
+    let file = fileList[0];
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file); //读取图片
+    fileReader.addEventListener("load", function () {
+      // 读取完成
+      let res = fileReader.result;
+      // res是base64格式的图片
+    });
+  </script>
+</html>
